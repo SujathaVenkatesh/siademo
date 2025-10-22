@@ -6,6 +6,7 @@ import {
   FaWhatsapp,
   FaMapMarkerAlt,
 } from "react-icons/fa";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -13,30 +14,37 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid md:grid-cols-3 gap-16">
         {/* About */}
         <div>
-          <h3 className="font-bold text-3xl mb-6 text-[#d2b48c]">
-            The Tile Studio
-          </h3>
+          {/* Logo from public/images folder */}
+          <Image
+            src="/images/logo.jpeg" // public/images/logo.png
+            alt="The Tile Studio Logo"
+            width={180}
+            height={60}
+            className="mb-6"
+          />
           <p className="text-gray-400 leading-relaxed text-lg">
-            Your trusted partner for premium building essentials in Perla,
-            Kasaragod. Transform your space with our exceptional products and
-            outstanding service.
+            Wholesaler of Ceramic Tiles, Vitrified Tiles, Mosaic Tiles,
+            Vitrified Slab & Porcelain Floor Tiles since 2017 in Chennai, Tamil
+            Nadu.
           </p>
         </div>
 
         {/* Quick Links */}
         <div>
-          <h3 className="font-bold text-3xl mb-6 text-[#4A7C7E]">Quick Links</h3>
+          <h3 className="font-bold text-3xl mb-6 text-[#4A7C7E]">
+            Quick Links
+          </h3>
           <ul className="space-y-3 text-lg">
             <li>
               <a href="#home" className="hover:text-[#d2b48c] transition">
                 Home
               </a>
             </li>
-            <li>
+            {/* <li>
               <a href="#portfolio" className="hover:text-[#d2b48c] transition">
                 Portfolio
               </a>
-            </li>
+            </li> */}
             <li>
               <a href="#products" className="hover:text-[#d2b48c] transition">
                 Products
@@ -57,15 +65,18 @@ export default function Footer() {
 
         {/* Contact Info */}
         <div>
-          <h3 className="font-bold text-3xl mb-6 text-[#4A7C7E]">Contact Info</h3>
+          <h3 className="font-bold text-3xl mb-6 text-[#4A7C7E]">
+            Contact Info
+          </h3>
           <p className="text-lg text-gray-400 mb-1">
-            Main Road, Perla, KASARAGOD
+            Sun Italia Associates No.265/1,266, Mettukuppam Road Chennai -
+            600095, Tamil Nadu, India
           </p>
-          <p className="text-lg text-gray-400 mb-1">Kerala, 671552</p>
-          <p className="text-lg text-gray-400 mb-1">Phone: +91 8147787801</p>
-          <p className="text-lg text-gray-400">
+          {/* <p className="text-lg text-gray-400 mb-1">Kerala, 671552</p> */}
+          <p className="text-lg text-gray-400 mb-1">Phone: +91 08045209536</p>
+          {/* <p className="text-lg text-gray-400">
             Email: Thetilestudioperla@gmail.com
-          </p>
+          </p> */}
         </div>
       </div>
 
@@ -92,7 +103,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 mt-16 border-t border-gray-800 pt-8 text-center text-gray-500 text-base">
         © 2025{" "}
         <span className="font-semibold text-[#d2b48c]">
-          The Tile Studio by Ceramic Collection
+          Sun Italia Associates
         </span>
         . All rights reserved.
       </div>

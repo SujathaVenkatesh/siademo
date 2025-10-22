@@ -4,6 +4,9 @@ import { useState } from "react";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
+  // Updated nav items
+  const navItems = ["Home", "About", "Products", "Contact"];
+
   return (
     <header className="bg-black border-b border-gray-800 shadow-md fixed top-0 left-0 w-full z-50">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
@@ -50,7 +53,7 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex gap-10 text-lg font-medium">
-            {["Home", "About", "Portfolio", "Contact"].map((item) => (
+            {navItems.map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
@@ -90,7 +93,7 @@ export default function Header() {
           }`}
         >
           <nav className="flex flex-col gap-4 mt-3 pb-4 text-lg font-medium">
-            {["Home", "About", "Portfolio", "Contact"].map((item) => (
+            {navItems.map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}

@@ -22,9 +22,20 @@ export default function Contact() {
   };
 
   return (
-    <section className="bg-black py-20 px-4">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
-        {/* Left Side - Contact Info */}
+    <section className="relative py-20 px-4" id="contact">
+      {/* Background Image with Overlay and Blur */}
+      <div className="absolute inset-0">
+        <img
+          src="/images/contact-bg.png" 
+          alt="tiles background"
+          className="w-full h-full object-cover blur-sm"
+        />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/60"></div>
+      </div>
+
+      {/* Content */}
+      <div className="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
         <div className="flex flex-col justify-start space-y-6">
           <h2 className="text-5xl font-bold text-[#d2b48c] mb-4">Contact Us</h2>
           <p className="text-gray-300 text-lg">
@@ -37,17 +48,15 @@ export default function Contact() {
             </div>
             <div>
               <h3 className="font-semibold text-[#4A7C7E] mb-1">Phone</h3>
-              <p>+91 98765 43210</p>
+              <p>+91 8045209536</p>
             </div>
             <div>
               <h3 className="font-semibold text-[#4A7C7E] mb-1">Address</h3>
-              <p>123, Main Street, City Name, State, Country</p>
+              <p>No.265/1,266, Mettukuppam Road Chennai - 600095, Tamil Nadu, India</p>
             </div>
           </div>
         </div>
-
-        {/* Right Side - Contact Form */}
-        <div className="bg-[#1a1a1a] p-10 rounded-2xl shadow-xl">
+        <div className="bg-[#1a1a1a]/90 p-10 rounded-2xl shadow-xl backdrop-blur-md">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label className="block font-medium text-[#d2b48c] mb-2">Name</label>
@@ -57,7 +66,7 @@ export default function Contact() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full border border-[#4A7C7E] rounded-md p-4 bg-black text-gray-200 focus:outline-none focus:ring-2 focus:ring-[#d2b48c]"
+                className="w-full border border-[#4A7C7E] rounded-md p-4 bg-black/70 text-gray-200 focus:outline-none focus:ring-2 focus:ring-[#d2b48c]"
               />
             </div>
             <div>
@@ -68,7 +77,7 @@ export default function Contact() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full border border-[#4A7C7E] rounded-md p-4 bg-black text-gray-200 focus:outline-none focus:ring-2 focus:ring-[#d2b48c]"
+                className="w-full border border-[#4A7C7E] rounded-md p-4 bg-black/70 text-gray-200 focus:outline-none focus:ring-2 focus:ring-[#d2b48c]"
               />
             </div>
             <div>
@@ -79,7 +88,7 @@ export default function Contact() {
                 value={formData.phone}
                 onChange={handleChange}
                 required
-                className="w-full border border-[#4A7C7E] rounded-md p-4 bg-black text-gray-200 focus:outline-none focus:ring-2 focus:ring-[#d2b48c]"
+                className="w-full border border-[#4A7C7E] rounded-md p-4 bg-black/70 text-gray-200 focus:outline-none focus:ring-2 focus:ring-[#d2b48c]"
               />
             </div>
             <div>
@@ -90,7 +99,7 @@ export default function Contact() {
                 onChange={handleChange}
                 required
                 rows={5}
-                className="w-full border border-[#4A7C7E] rounded-md p-4 bg-black text-gray-200 focus:outline-none focus:ring-2 focus:ring-[#d2b48c]"
+                className="w-full border border-[#4A7C7E] rounded-md p-4 bg-black/70 text-gray-200 focus:outline-none focus:ring-2 focus:ring-[#d2b48c]"
               />
             </div>
             <button
