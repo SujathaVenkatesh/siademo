@@ -112,7 +112,7 @@ export default function AboutSection() {
             className="absolute top-0 left-1/2 transform -translate-x-1/2 lg:translate-x-0 lg:left-10 text-center lg:text-left z-20"
           >
             <h1 className="text-[100px] md:text-[120px] font-extrabold text-[#C49A6C] leading-none animate-bounce">
-              25+
+              20+
             </h1>
             <p className="text-gray-800 font-medium text-lg">
               Years Of Experience
