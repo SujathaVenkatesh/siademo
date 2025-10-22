@@ -8,8 +8,6 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: 'Sun Italia Associates',
-  description: 'Created with v0',
-  generator: 'v0.app',
 }
 
 export default function RootLayout({
