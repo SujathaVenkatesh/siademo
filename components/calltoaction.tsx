@@ -1,20 +1,27 @@
-"use client";
+"use client"
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion"
+import { useRef } from "react"
 
 export default function CTABanner() {
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  })
+
+  const y = useTransform(scrollYProgress, [0, 1], [50, -50])
+
   return (
-    <section className="relative w-full h-screen overflow-hidden bg-gray-900">
-      {/* Background Video */}
+    <section ref={ref} className="relative w-full h-screen overflow-hidden bg-gray-900">
+      {/* Background Video with Parallax */}
       <motion.video
         className="absolute inset-0 w-full h-full object-cover"
         autoPlay
         loop
         muted
         playsInline
-        initial={{ y: -50 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
+        style={{ y }}
       >
         <source src="/video3.mp4" type="video/mp4" />
         Your browser does not support the video tag.
@@ -28,8 +35,9 @@ export default function CTABanner() {
         <motion.h1
           className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-6 tracking-tight leading-[1.1]"
           initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
+          whileInView={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2, duration: 1 }}
+          viewport={{ once: true }}
         >
           Ready to Transform Your Space?{" "}
           <span className="font-serif italic text-transparent bg-clip-text bg-gradient-to-r from-[#C49A6C] via-[#D2B48C] to-[#2F4F4F] animate-gradient">
@@ -42,17 +50,20 @@ export default function CTABanner() {
         <motion.p
           className="text-lg sm:text-xl text-gray-200 mb-10 max-w-2xl"
           initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
+          whileInView={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
+          viewport={{ once: true }}
         >
-          Our premium tile collection is ready for your home or office. Browse now and get the perfect design delivered directly to you. Don’t wait — create your dream space today!
+          Our premium tile collection is ready for your home or office. Browse now and get the perfect design delivered
+          directly to you. Don't wait — create your dream space today!
         </motion.p>
 
         <motion.div
-          className="flex gap-6"
+          className="flex gap-6 flex-wrap justify-center"
           initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
+          whileInView={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.8, duration: 1 }}
+          viewport={{ once: true }}
         >
           <a
             href="#products"
@@ -69,5 +80,5 @@ export default function CTABanner() {
         </motion.div>
       </div>
     </section>
-  );
+  )
 }

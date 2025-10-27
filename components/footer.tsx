@@ -1,111 +1,16 @@
 "use client";
 
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaWhatsapp,
-  FaMapMarkerAlt,
-} from "react-icons/fa";
-import Image from "next/image";
-
 export default function Footer() {
   return (
-    <footer className="bg-black text-gray-300 pt-20 pb-10">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 grid md:grid-cols-3 gap-16">
-        {/* About */}
-        <div>
-          {/* Logo from public/images folder */}
-          <Image
-            src="/images/logo.jpeg" // public/images/logo.png
-            alt="The Tile Studio Logo"
-            width={180}
-            height={60}
-            className="mb-6"
-          />
-          <p className="text-gray-400 leading-relaxed text-lg">
-            Wholesaler of Ceramic Tiles, Vitrified Tiles, Mosaic Tiles,
-            Vitrified Slab & Porcelain Floor Tiles since 2017 in Chennai, Tamil
-            Nadu.
-          </p>
-        </div>
-
-        {/* Quick Links */}
-        <div>
-          <h3 className="font-bold text-3xl mb-6 text-[#4A7C7E]">
-            Quick Links
-          </h3>
-          <ul className="space-y-3 text-lg">
-            <li>
-              <a href="#home" className="hover:text-[#d2b48c] transition">
-                Home
-              </a>
-            </li>
-            {/* <li>
-              <a href="#portfolio" className="hover:text-[#d2b48c] transition">
-                Portfolio
-              </a>
-            </li> */}
-            <li>
-              <a href="#products" className="hover:text-[#d2b48c] transition">
-                Products
-              </a>
-            </li>
-            <li>
-              <a href="#about" className="hover:text-[#d2b48c] transition">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#contact" className="hover:text-[#d2b48c] transition">
-                Contact
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        {/* Contact Info */}
-        <div>
-          <h3 className="font-bold text-3xl mb-6 text-[#4A7C7E]">
-            Contact Info
-          </h3>
-          <p className="text-lg text-gray-400 mb-1">
-            Sun Italia Associates No.265/1,266, Mettukuppam Road Chennai -
-            600095, Tamil Nadu, India
-          </p>
-          {/* <p className="text-lg text-gray-400 mb-1">Kerala, 671552</p> */}
-          <p className="text-lg text-gray-400 mb-1">Phone: +91 08045209536</p>
-          {/* <p className="text-lg text-gray-400">
-            Email: Thetilestudioperla@gmail.com
-          </p> */}
-        </div>
-      </div>
-
-      {/* Follow Us */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 mt-16">
-        <h3 className="font-bold text-3xl mb-6 text-[#d2b48c]">Follow Us</h3>
-        <div className="flex gap-6 text-gray-400">
-          <a href="#" className="hover:text-[#4A7C7E] transition">
-            <FaFacebookF size={30} />
-          </a>
-          <a href="#" className="hover:text-[#4A7C7E] transition">
-            <FaInstagram size={30} />
-          </a>
-          <a href="#" className="hover:text-[#4A7C7E] transition">
-            <FaWhatsapp size={30} />
-          </a>
-          <a href="#" className="hover:text-[#4A7C7E] transition">
-            <FaMapMarkerAlt size={30} />
-          </a>
-        </div>
-      </div>
-
-      {/* Copyright */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 mt-16 border-t border-gray-800 pt-8 text-center text-gray-500 text-base">
-        © 2025{" "}
-        <span className="font-semibold text-[#d2b48c]">
-          Sun Italia Associates
-        </span>
-        . All rights reserved.
+    <footer className="bg-[#f8e9c9] py-6 border-t border-[#caa35a]">
+      <div className="max-w-7xl mx-auto px-6 text-center">
+        <p className="text-[#8a0303] font-medium text-sm">
+          © 2025{" "}
+          <span className="font-semibold text-[#b70e0e]">
+            Sun Italia Associates
+          </span>{" "}
+          All rights reserved.
+        </p>
       </div>
     </footer>
   );

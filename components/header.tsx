@@ -1,110 +1,89 @@
-"use client";
-import { useState } from "react";
+"use client"
+import { useState } from "react"
+import Image from "next/image"
+import { Menu, X } from "lucide-react"
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
+  const [activeItem, setActiveItem] = useState("Home")
 
-  // Updated nav items
-  const navItems = ["Home", "About", "Products", "Contact"];
+  const navItems = [
+    { label: "Home", href: "#" },
+    { label: "About", href: "#" },
+    { label: "Products", href: "#" },
+    { label: "Contact", href: "#" },
+  ]
 
   return (
-    <header className="bg-black border-b border-gray-800 shadow-md fixed top-0 left-0 w-full z-50">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
-        <div className="flex justify-between items-center h-24">
-          {/* Logo Section */}
-          <div className="flex items-center gap-3">
-            <div className="w-20 h-20 relative">
-              <svg viewBox="0 0 200 200" className="w-full h-full">
-                {/* Outer diamond */}
-                <g stroke="#D4AF8F" strokeWidth="8" fill="none">
-                  <path d="M 100 20 L 180 100 L 100 180 L 20 100 Z" />
-                </g>
-
-                {/* Decorative curves */}
-                <g stroke="#D4AF8F" strokeWidth="6" fill="none">
-                  <path d="M 60 80 Q 100 60 140 80" />
-                  <path d="M 60 120 Q 100 140 140 120" />
-                </g>
-
-                {/* Accent diamonds */}
-                <rect x="85" y="35" width="30" height="30" fill="#4A7C7E" transform="rotate(45 100 50)" />
-                <rect x="85" y="135" width="30" height="30" fill="#4A7C7E" transform="rotate(45 100 150)" />
-                <rect x="35" y="85" width="20" height="20" fill="#C9915F" transform="rotate(45 45 95)" />
-                <rect x="145" y="85" width="20" height="20" fill="#C9915F" transform="rotate(45 155 95)" />
-
-                {/* S2A Text */}
-                <text
-                  x="100"
-                  y="115"
-                  fontSize="60"
-                  fontWeight="bold"
-                  fill="#F5E6D3"
-                  textAnchor="middle"
-                  fontFamily="Poppins, sans-serif"
-                >
-                  S2A
-                </text>
-              </svg>
-            </div>
-            <span className="text-white font-bold text-2xl tracking-wide hidden sm:inline">
-              S2A ARCHITECTS
-            </span>
+    <header className="w-full fixed top-0 left-0 bg-white z-50 shadow-lg">
+      <div className="border-b border-amber-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex items-center justify-center gap-3">
+            <Image src="/images/logo1.jpg" alt="S2A Architects Logo" width={48} height={48} className="object-contain" />
+            <span className="text-gray-800 font-bold text-xl tracking-wide hidden sm:inline">S2A ARCHITECTS</span>
           </div>
+        </div>
+      </div>
 
+      {/* Row 2: Navigation Menu - Centered */}
+      <div className="bg-white/95 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex gap-10 text-lg font-medium">
-            {navItems.map((item) => (
+          <nav className="hidden md:flex items-center justify-center gap-8 py-4">
+            {navItems.map((item, i) => (
               <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="text-gray-200 hover:text-[#C9915F] transition-colors duration-300"
+                key={i}
+                href={item.href}
+                onClick={() => setActiveItem(item.label)}
+                className={`font-bold text-sm transition-all duration-200 relative group px-3 py-2 rounded-lg ${
+                  activeItem === item.label
+                    ? "text-amber-700 bg-amber-100"
+                    : "text-gray-700 hover:text-amber-600 hover:bg-amber-50"
+                }`}
               >
-                {item}
+                {item.label}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-500 group-hover:w-full transition-all duration-300"></span>
               </a>
             ))}
           </nav>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-white focus:outline-none"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle Menu"
-          >
-            <svg
-              className="w-8 h-8"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              strokeWidth={2}
+          <div className="md:hidden flex items-center justify-center py-4">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 rounded-lg hover:bg-amber-100 transition-colors"
+              aria-label="Toggle menu"
             >
-              {isOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
+              {isOpen ? <X className="w-6 h-6 text-amber-600" /> : <Menu className="w-6 h-6 text-amber-600" />}
+            </button>
+          </div>
         </div>
 
-        {/* Mobile Menu */}
-        <div
-          className={`md:hidden transition-all duration-500 ease-in-out overflow-hidden ${
-            isOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
-          }`}
-        >
-          <nav className="flex flex-col gap-4 mt-3 pb-4 text-lg font-medium">
-            {navItems.map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="text-gray-200 hover:text-[#C9915F] transition-colors duration-300"
-              >
-                {item}
-              </a>
-            ))}
+        {/* Mobile Navigation */}
+        {isOpen && (
+          <nav className="md:hidden bg-white/90 border-t border-amber-200">
+            <div className="flex flex-col gap-0 py-2">
+              {navItems.map((item, i) => (
+                <a
+                  key={i}
+                  href={item.href}
+                  onClick={() => {
+                    setActiveItem(item.label)
+                    setIsOpen(false)
+                  }}
+                  className={`px-6 py-3 font-bold text-sm transition-all duration-200 text-center border-b border-amber-100 last:border-b-0 ${
+                    activeItem === item.label
+                      ? "text-amber-700 bg-amber-100"
+                      : "text-gray-700 hover:bg-amber-50 hover:text-amber-600"
+                  }`}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
           </nav>
-        </div>
+        )}
       </div>
     </header>
-  );
+  )
 }

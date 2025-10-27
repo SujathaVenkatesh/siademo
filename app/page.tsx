@@ -6,7 +6,7 @@ import Portfolio from "@/components/portfolio"
 import Footer from "@/components/footer"
 import Contact from "@/components/contact-us"
 import AboutSection from "@/components/aboutreplicate"
-import Testimonials from "@/components/testimonial"
+// import Testimonials from "@/components/testimonial"
 import CTABanner from "@/components/calltoaction"
 
 export default function Home() {
@@ -18,7 +18,7 @@ export default function Home() {
       <AboutSection/>
       <Portfolio />
       {/* <Products /> */}
-      <Testimonials/>
+      {/* <Testimonials/> */}
       <CTABanner/>
       <Contact/>
       <Footer />
