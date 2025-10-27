@@ -10,50 +10,34 @@ export default function AboutSection() {
       className="relative flex flex-col lg:flex-row items-start justify-between min-h-screen gap-12 lg:gap-20 px-6 md:px-12 lg:px-32 py-20 bg-white overflow-hidden"
     >
       {/* --- LEFT SIDE CONTENT --- */}
+      {/* MAIN ABOUT CONTENT */}
       <motion.div
         initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
+        whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
-        className="relative z-10 w-full lg:w-5/12 mb-16 lg:mb-0"
+        className="max-w-xl space-y-6 text-justify"
       >
-        {/* Label */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="flex items-center gap-2 mb-3"
-        >
-          <div className="w-2 h-2 bg-[#C49A6C] rounded-full animate-pulse" />
-          <p className="uppercase text-sm font-semibold text-gray-700 tracking-wide">
-            About Us
-          </p>
-        </motion.div>
+        {/* Heading Tag */}
+        <p className="text-[#C49A6C] text-sm tracking-[3px] font-semibold uppercase">
+          About Us
+        </p>
 
-        {/* MAIN ABOUT CONTENT */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="p-6 border-l-4 border-[#C49A6C] bg-gray-50 shadow-md rounded-md hover:shadow-xl transition-shadow duration-300"
-        >
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
-            Welcome to Sun Italia Associates
-          </h3>
-          <div className="text-gray-700 text-base md:text-lg leading-relaxed space-y-4">
-            <p>
-              Welcome to Sun Italia Associates, your trusted partner in the tile
-              industry for the past 30 years. Based in the vibrant city of
-              Chennai, we have established ourselves as a leading wholesale
-              dealer, dedicated to providing top-quality tiles and exceptional
-              service throughout India.
-            </p>
+        {/* Main Title */}
+        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-snug">
+          Sun Italia Associates
+        </h2>
 
-           
-          </div>
-        </motion.div>
+        {/* Description */}
+        <p className="text-gray-600 text-lg leading-relaxed">
+          For over 30 years, Sun Italia Associates has been a trusted wholesale
+          dealer of premium quality tiles in Chennai, delivering style,
+          durability, and elegance across India.
+        </p>
 
-        {/* Call to Action */}
-    
+        <p className="text-gray-600 text-lg leading-relaxed">
+          We bring world-class designs that transform homes, workplaces, and
+          luxury spaces into timeless masterpieces.
+        </p>
       </motion.div>
 
       {/* --- RIGHT SIDE IMAGES --- */}
@@ -67,7 +51,7 @@ export default function AboutSection() {
             className="absolute top-0 left-1/2 transform -translate-x-1/2 lg:translate-x-0 lg:left-10 text-center lg:text-left z-20"
           >
             <h1 className="text-[100px] md:text-[120px] font-extrabold text-[#C49A6C] leading-none animate-bounce">
-              20+
+              30+
             </h1>
             <p className="text-gray-800 font-medium text-lg">
               Years Of Experience

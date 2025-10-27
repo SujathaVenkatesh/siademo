@@ -1,80 +1,83 @@
-"use client"
-import { useState } from "react"
-import Image from "next/image"
-import { Menu, X } from "lucide-react"
+"use client";
+import { useState } from "react";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [activeItem, setActiveItem] = useState("Home")
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeItem, setActiveItem] = useState("Home");
 
   const navItems = [
-    { label: "Home", href: "#" },
-    { label: "About", href: "#" },
-    { label: "Products", href: "#" },
-    { label: "Contact", href: "#" },
-  ]
+    { label: "Home", href: "#home" },
+    { label: "About", href: "#about" },
+    { label: "Products", href: "#products" },
+    { label: "Contact", href: "#contact" },
+  ];
 
   return (
-    <header className="w-full fixed top-0 left-0 bg-white z-50 shadow-lg">
-      <div className="border-b border-amber-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-center gap-3">
-            <Image src="/images/logo1.jpg" alt="S2A Architects Logo" width={48} height={48} className="object-contain" />
-            <span className="text-gray-800 font-bold text-xl tracking-wide hidden sm:inline">S2A ARCHITECTS</span>
-          </div>
-        </div>
+    <header className="w-full fixed top-0 left-0 bg-[#f8e9c9] border-b border-[#caa35a] z-50 shadow-[0_2px_10px_rgba(0,0,0,0.08)]">
+      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-center gap-3">
+        <Image
+          src="/images/logo1.jpg"
+          alt="Sun Italia Associates Logo"
+          width={60}
+          height={60}
+          className="object-contain rounded-md"
+        />
+        <span className="text-[#8a0303] font-extrabold text-xl tracking-wide hidden sm:inline">
+          Sun Italia Associates
+        </span>
       </div>
 
-      {/* Row 2: Navigation Menu - Centered */}
-      <div className="bg-white/95 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center justify-center gap-8 py-4">
-            {navItems.map((item, i) => (
-              <a
-                key={i}
-                href={item.href}
-                onClick={() => setActiveItem(item.label)}
-                className={`font-bold text-sm transition-all duration-200 relative group px-3 py-2 rounded-lg ${
-                  activeItem === item.label
-                    ? "text-amber-700 bg-amber-100"
-                    : "text-gray-700 hover:text-amber-600 hover:bg-amber-50"
-                }`}
-              >
-                {item.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-500 group-hover:w-full transition-all duration-300"></span>
-              </a>
-            ))}
-          </nav>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center justify-center py-4">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg hover:bg-amber-100 transition-colors"
-              aria-label="Toggle menu"
+      <div className="bg-[#fff9ef]/90 backdrop-blur-sm">
+        {/* Desktop Menu */}
+        <nav className="hidden md:flex items-center justify-center gap-10 py-3">
+          {navItems.map((item, i) => (
+            <a
+              key={i}
+              href={item.href}
+              onClick={() => setActiveItem(item.label)}
+              className={`font-semibold text-base py-2 px-3 rounded-md transition-all duration-200 ${
+                activeItem === item.label
+                  ? "text-[#8a0303] bg-[#caa35a]/30"
+                  : "text-[#8a0303] hover:text-[#721010] hover:bg-[#caa35a]/20"
+              }`}
             >
-              {isOpen ? <X className="w-6 h-6 text-amber-600" /> : <Menu className="w-6 h-6 text-amber-600" />}
-            </button>
-          </div>
+              {item.label}
+            </a>
+          ))}
+        </nav>
+
+        {/* Mobile Menu Toggle */}
+        <div className="md:hidden flex items-center justify-center py-3">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="p-2 rounded-lg hover:bg-[#caa35a]/25 transition"
+          >
+            {isOpen ? (
+              <X className="w-6 h-6 text-[#8a0303]" />
+            ) : (
+              <Menu className="w-6 h-6 text-[#8a0303]" />
+            )}
+          </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Dropdown */}
         {isOpen && (
-          <nav className="md:hidden bg-white/90 border-t border-amber-200">
-            <div className="flex flex-col gap-0 py-2">
+          <nav className="md:hidden bg-[#fdf3de] border-t border-[#caa35a]">
+            <div className="flex flex-col">
               {navItems.map((item, i) => (
                 <a
                   key={i}
                   href={item.href}
                   onClick={() => {
-                    setActiveItem(item.label)
-                    setIsOpen(false)
+                    setActiveItem(item.label);
+                    setIsOpen(false);
                   }}
-                  className={`px-6 py-3 font-bold text-sm transition-all duration-200 text-center border-b border-amber-100 last:border-b-0 ${
+                  className={`text-center py-3 text-base border-b border-[#ead3a9] font-semibold transition ${
                     activeItem === item.label
-                      ? "text-amber-700 bg-amber-100"
-                      : "text-gray-700 hover:bg-amber-50 hover:text-amber-600"
+                      ? "text-[#8a0303] bg-[#caa35a]/30"
+                      : "text-[#7b4747] hover:bg-[#caa35a]/20"
                   }`}
                 >
                   {item.label}
@@ -85,5 +88,5 @@ export default function Header() {
         )}
       </div>
     </header>
-  )
+  );
 }
