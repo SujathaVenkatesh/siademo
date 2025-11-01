@@ -15,21 +15,22 @@ export default function Header() {
   ];
 
   return (
-    <header className="w-full fixed top-0 left-0 bg-[#f8e9c9] border-b border-[#caa35a] z-50 shadow-[0_2px_10px_rgba(0,0,0,0.08)]">
+    <header className="w-full fixed top-0 left-0 bg-white border-b border-[#caa35a] z-50 shadow-[0_2px_10px_rgba(0,0,0,0.08)]">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-center gap-3">
         <Image
-          src="/images/logo1.jpg"
+          src="/images/SIA Logo.png"
           alt="Sun Italia Associates Logo"
           width={60}
           height={60}
           className="object-contain rounded-md"
         />
+
         <span className="text-[#8a0303] font-extrabold text-xl tracking-wide hidden sm:inline">
           Sun Italia Associates
         </span>
       </div>
 
-      <div className="bg-[#fff9ef]/90 backdrop-blur-sm">
+      <div className="bg-white/90 backdrop-blur-sm">
         {/* Desktop Menu */}
         <nav className="hidden md:flex items-center justify-center gap-10 py-3">
           {navItems.map((item, i) => (
@@ -64,7 +65,7 @@ export default function Header() {
 
         {/* Mobile Dropdown */}
         {isOpen && (
-          <nav className="md:hidden bg-[#fdf3de] border-t border-[#caa35a]">
+          <nav className="md:hidden bg-white border-t border-[#caa35a]">
             <div className="flex flex-col">
               {navItems.map((item, i) => (
                 <a
